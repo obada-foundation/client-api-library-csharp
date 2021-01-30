@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.LocalObitStructuredData
+# Obada.Client.Model.LocalObitStructuredData
 
 ## Properties
 

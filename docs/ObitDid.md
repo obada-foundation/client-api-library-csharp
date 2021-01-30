@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.ObitDid
+# Obada.Client.Model.ObitDid
 
 ## Properties
 

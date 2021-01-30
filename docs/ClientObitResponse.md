@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.ClientObitResponse
+# Obada.Client.Model.ClientObitResponse
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.ObitApi
+# Obada.Client.Api.ObitApi
 
 All URIs are relative to *http://localhost*
 
@@ -26,9 +26,9 @@ Downloads the Obit information from the blockchain to the client.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Obada.Client.Api;
+using Obada.Client.Client;
+using Obada.Client.Model;
 
 namespace Example
 {
@@ -101,9 +101,9 @@ Retrieves Obit information from blockchain but does not download it.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Obada.Client.Api;
+using Obada.Client.Client;
+using Obada.Client.Model;
 
 namespace Example
 {
@@ -176,9 +176,9 @@ Returns the Obit Definition for a given device_id, part_number and serial_number
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Obada.Client.Api;
+using Obada.Client.Client;
+using Obada.Client.Model;
 
 namespace Example
 {
@@ -253,9 +253,9 @@ Get Client Obit
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Obada.Client.Api;
+using Obada.Client.Client;
+using Obada.Client.Model;
 
 namespace Example
 {
@@ -326,9 +326,9 @@ Save Client Obit
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Obada.Client.Api;
+using Obada.Client.Client;
+using Obada.Client.Model;
 
 namespace Example
 {
@@ -401,9 +401,9 @@ Uploads Obit from client to the Blockchain
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Obada.Client.Api;
+using Obada.Client.Client;
+using Obada.Client.Model;
 
 namespace Example
 {

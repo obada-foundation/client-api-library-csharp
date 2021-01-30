@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.LocalObitDocuments
+# Obada.Client.Model.LocalObitDocuments
 
 ## Properties
 

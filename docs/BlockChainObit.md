@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.BlockChainObit
+# Obada.Client.Model.BlockChainObit
 
 ## Properties
 

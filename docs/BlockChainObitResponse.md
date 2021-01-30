@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.BlockChainObitResponse
+# Obada.Client.Model.BlockChainObitResponse
 
 ## Properties
 

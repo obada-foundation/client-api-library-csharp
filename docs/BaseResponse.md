@@ -1,5 +1,5 @@
 
-# Org.OpenAPITools.Model.BaseResponse
+# Obada.Client.Model.BaseResponse
 
 ## Properties
 
