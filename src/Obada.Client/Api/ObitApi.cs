@@ -431,7 +431,7 @@ namespace Obada.Client.Api
         public ApiResponse<ClientObitResponse> DownloadObitFromChainWithHttpInfo (ObitDid obitDid = default(ObitDid))
         {
 
-            var localVarPath = "/server/obit/download";
+            var localVarPath = "/api/server/obit/download";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -505,7 +505,7 @@ namespace Obada.Client.Api
         public async System.Threading.Tasks.Task<ApiResponse<ClientObitResponse>> DownloadObitFromChainWithHttpInfoAsync (ObitDid obitDid = default(ObitDid), CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            var localVarPath = "/server/obit/download";
+            var localVarPath = "/api/server/obit/download";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -579,7 +579,7 @@ namespace Obada.Client.Api
             if (obitDid == null)
                 throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->FetchObitFromChain");
 
-            var localVarPath = "/server/obit/{obit_did}";
+            var localVarPath = "/api/server/obit/{obit_did}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -648,7 +648,7 @@ namespace Obada.Client.Api
             if (obitDid == null)
                 throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->FetchObitFromChain");
 
-            var localVarPath = "/server/obit/{obit_did}";
+            var localVarPath = "/api/server/obit/{obit_did}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -724,7 +724,7 @@ namespace Obada.Client.Api
             if (serialNumber == null)
                 throw new ApiException(400, "Missing required parameter 'serialNumber' when calling ObitApi->GenerateObitDef");
 
-            var localVarPath = "/obit/generate";
+            var localVarPath = "/api/obit/generate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -805,7 +805,7 @@ namespace Obada.Client.Api
             if (serialNumber == null)
                 throw new ApiException(400, "Missing required parameter 'serialNumber' when calling ObitApi->GenerateObitDef");
 
-            var localVarPath = "/obit/generate";
+            var localVarPath = "/api/obit/generate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -873,7 +873,7 @@ namespace Obada.Client.Api
             if (obitDid == null)
                 throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->GetClientObit");
 
-            var localVarPath = "/client/obit/{obit_did}";
+            var localVarPath = "/api/client/obit/{obit_did}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -942,7 +942,7 @@ namespace Obada.Client.Api
             if (obitDid == null)
                 throw new ApiException(400, "Missing required parameter 'obitDid' when calling ObitApi->GetClientObit");
 
-            var localVarPath = "/client/obit/{obit_did}";
+            var localVarPath = "/api/client/obit/{obit_did}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1005,7 +1005,7 @@ namespace Obada.Client.Api
         public ApiResponse<ClientObitResponse> SaveClientObitWithHttpInfo (LocalObit localObit = default(LocalObit))
         {
 
-            var localVarPath = "/client/obit";
+            var localVarPath = "/api/client/obit";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1079,7 +1079,7 @@ namespace Obada.Client.Api
         public async System.Threading.Tasks.Task<ApiResponse<ClientObitResponse>> SaveClientObitWithHttpInfoAsync (LocalObit localObit = default(LocalObit), CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            var localVarPath = "/client/obit";
+            var localVarPath = "/api/client/obit";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1150,7 +1150,7 @@ namespace Obada.Client.Api
         public ApiResponse<BaseResponse> UploadObitWithHttpInfo (ObitDid obitDid = default(ObitDid))
         {
 
-            var localVarPath = "/server/obit/upload";
+            var localVarPath = "/api/server/obit/upload";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1224,7 +1224,7 @@ namespace Obada.Client.Api
         public async System.Threading.Tasks.Task<ApiResponse<BaseResponse>> UploadObitWithHttpInfoAsync (ObitDid obitDid = default(ObitDid), CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            var localVarPath = "/server/obit/upload";
+            var localVarPath = "/api/server/obit/upload";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
