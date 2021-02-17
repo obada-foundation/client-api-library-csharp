@@ -102,6 +102,18 @@ namespace Obada.Client.Test
         }
         
         /// <summary>
+        /// Test GenerateRootHash
+        /// </summary>
+        [Test]
+        public void GenerateRootHashTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //LocalObit localObit = null;
+            //var response = instance.GenerateRootHash(localObit);
+            //Assert.IsInstanceOf(typeof(RootHashResponse), response, "response is RootHashResponse");
+        }
+        
+        /// <summary>
         /// Test GetClientObit
         /// </summary>
         [Test]

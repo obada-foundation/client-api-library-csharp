@@ -93,6 +93,27 @@ namespace Obada.Client.Api
         /// <returns>ApiResponse of ObitDefinitionResponse</returns>
         ApiResponse<ObitDefinitionResponse> GenerateObitDefWithHttpInfo (string manufacturer, string partNumber, string serialNumber);
         /// <summary>
+        /// Generates The Root Hash using the data provided.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <returns>RootHashResponse</returns>
+        RootHashResponse GenerateRootHash (LocalObit localObit = default(LocalObit));
+
+        /// <summary>
+        /// Generates The Root Hash using the data provided.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <returns>ApiResponse of RootHashResponse</returns>
+        ApiResponse<RootHashResponse> GenerateRootHashWithHttpInfo (LocalObit localObit = default(LocalObit));
+        /// <summary>
         /// Get Client Obit
         /// </summary>
         /// <remarks>
@@ -230,6 +251,29 @@ namespace Obada.Client.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse (ObitDefinitionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ObitDefinitionResponse>> GenerateObitDefWithHttpInfoAsync (string manufacturer, string partNumber, string serialNumber, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generates The Root Hash using the data provided.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of RootHashResponse</returns>
+        System.Threading.Tasks.Task<RootHashResponse> GenerateRootHashAsync (LocalObit localObit = default(LocalObit), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Generates The Root Hash using the data provided.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (RootHashResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RootHashResponse>> GenerateRootHashWithHttpInfoAsync (LocalObit localObit = default(LocalObit), CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get Client Obit
         /// </summary>
@@ -847,6 +891,151 @@ namespace Obada.Client.Api
             return new ApiResponse<ObitDefinitionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (ObitDefinitionResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ObitDefinitionResponse)));
+        }
+
+        /// <summary>
+        /// Generates The Root Hash using the data provided. 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <returns>RootHashResponse</returns>
+        public RootHashResponse GenerateRootHash (LocalObit localObit = default(LocalObit))
+        {
+             ApiResponse<RootHashResponse> localVarResponse = GenerateRootHashWithHttpInfo(localObit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generates The Root Hash using the data provided. 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <returns>ApiResponse of RootHashResponse</returns>
+        public ApiResponse<RootHashResponse> GenerateRootHashWithHttpInfo (LocalObit localObit = default(LocalObit))
+        {
+
+            var localVarPath = "/api/obit/hash";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (localObit != null && localObit.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(localObit); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = localObit; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateRootHash", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RootHashResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (RootHashResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RootHashResponse)));
+        }
+
+        /// <summary>
+        /// Generates The Root Hash using the data provided. 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of RootHashResponse</returns>
+        public async System.Threading.Tasks.Task<RootHashResponse> GenerateRootHashAsync (LocalObit localObit = default(LocalObit), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<RootHashResponse> localVarResponse = await GenerateRootHashWithHttpInfoAsync(localObit, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generates The Root Hash using the data provided. 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="localObit"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (RootHashResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<RootHashResponse>> GenerateRootHashWithHttpInfoAsync (LocalObit localObit = default(LocalObit), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/api/obit/hash";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (localObit != null && localObit.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(localObit); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = localObit; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GenerateRootHash", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<RootHashResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (RootHashResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(RootHashResponse)));
         }
 
         /// <summary>
