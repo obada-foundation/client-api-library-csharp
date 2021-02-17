@@ -768,7 +768,7 @@ namespace Obada.Client.Api
             if (serialNumber == null)
                 throw new ApiException(400, "Missing required parameter 'serialNumber' when calling ObitApi->GenerateObitDef");
 
-            var localVarPath = "/api/obit/generate";
+            var localVarPath = "/api/obit/definition";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -849,7 +849,7 @@ namespace Obada.Client.Api
             if (serialNumber == null)
                 throw new ApiException(400, "Missing required parameter 'serialNumber' when calling ObitApi->GenerateObitDef");
 
-            var localVarPath = "/api/obit/generate";
+            var localVarPath = "/api/obit/definition";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
