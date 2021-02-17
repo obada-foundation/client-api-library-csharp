@@ -98,12 +98,12 @@ namespace Obada.Client.Test
             // TODO unit test for the property 'PartNumber'
         }
         /// <summary>
-        /// Test the property 'SerialNumberHash'
+        /// Test the property 'SerialNumber'
         /// </summary>
         [Test]
-        public void SerialNumberHashTest()
+        public void SerialNumberTest()
         {
-            // TODO unit test for the property 'SerialNumberHash'
+            // TODO unit test for the property 'SerialNumber'
         }
         /// <summary>
         /// Test the property 'Metadata'

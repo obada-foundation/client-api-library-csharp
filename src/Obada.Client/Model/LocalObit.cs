@@ -87,12 +87,12 @@ namespace Obada.Client.Model
         /// <param name="obitStatus">Represent available Obit statuses:   - FUNCTIONAL   - NON_FUNCTIONAL   - DISPOSED   - STOLEN   - DISABLED_BY_OWNER  (required).</param>
         /// <param name="manufacturer">Waiting more specific details from Rohi (required).</param>
         /// <param name="partNumber">Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160) (required).</param>
-        /// <param name="serialNumberHash">Serial number hashed with sha256 hash function (required).</param>
+        /// <param name="serialNumber">Serial Number (required).</param>
         /// <param name="metadata">Get description from Rohi.</param>
         /// <param name="documents">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
         /// <param name="structuredData">Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)).</param>
         /// <param name="modifiedAt">modifiedAt (required).</param>
-        public LocalObit(string owner = default(string), ObitStatusEnum obitStatus = default(ObitStatusEnum), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), List<LocalObitMetadata> metadata = default(List<LocalObitMetadata>), List<LocalObitDocuments> documents = default(List<LocalObitDocuments>), List<LocalObitStructuredData> structuredData = default(List<LocalObitStructuredData>), DateTime modifiedAt = default(DateTime))
+        public LocalObit(string owner = default(string), ObitStatusEnum obitStatus = default(ObitStatusEnum), string manufacturer = default(string), string partNumber = default(string), string serialNumber = default(string), List<LocalObitMetadata> metadata = default(List<LocalObitMetadata>), List<LocalObitDocuments> documents = default(List<LocalObitDocuments>), List<LocalObitStructuredData> structuredData = default(List<LocalObitStructuredData>), DateTime modifiedAt = default(DateTime))
         {
             // to ensure "owner" is required (not null)
             if (owner == null)
@@ -134,14 +134,14 @@ namespace Obada.Client.Model
                 this.PartNumber = partNumber;
             }
             
-            // to ensure "serialNumberHash" is required (not null)
-            if (serialNumberHash == null)
+            // to ensure "serialNumber" is required (not null)
+            if (serialNumber == null)
             {
-                throw new InvalidDataException("serialNumberHash is a required property for LocalObit and cannot be null");
+                throw new InvalidDataException("serialNumber is a required property for LocalObit and cannot be null");
             }
             else
             {
-                this.SerialNumberHash = serialNumberHash;
+                this.SerialNumber = serialNumber;
             }
             
             // to ensure "modifiedAt" is required (not null)
@@ -182,11 +182,11 @@ namespace Obada.Client.Model
         public string PartNumber { get; set; }
 
         /// <summary>
-        /// Serial number hashed with sha256 hash function
+        /// Serial Number
         /// </summary>
-        /// <value>Serial number hashed with sha256 hash function</value>
-        [DataMember(Name="serial_number_hash", EmitDefaultValue=true)]
-        public string SerialNumberHash { get; set; }
+        /// <value>Serial Number</value>
+        [DataMember(Name="serial_number", EmitDefaultValue=true)]
+        public string SerialNumber { get; set; }
 
         /// <summary>
         /// Get description from Rohi
@@ -227,7 +227,7 @@ namespace Obada.Client.Model
             sb.Append("  ObitStatus: ").Append(ObitStatus).Append("\n");
             sb.Append("  Manufacturer: ").Append(Manufacturer).Append("\n");
             sb.Append("  PartNumber: ").Append(PartNumber).Append("\n");
-            sb.Append("  SerialNumberHash: ").Append(SerialNumberHash).Append("\n");
+            sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
             sb.Append("  StructuredData: ").Append(StructuredData).Append("\n");
@@ -287,9 +287,9 @@ namespace Obada.Client.Model
                     this.PartNumber.Equals(input.PartNumber))
                 ) && 
                 (
-                    this.SerialNumberHash == input.SerialNumberHash ||
-                    (this.SerialNumberHash != null &&
-                    this.SerialNumberHash.Equals(input.SerialNumberHash))
+                    this.SerialNumber == input.SerialNumber ||
+                    (this.SerialNumber != null &&
+                    this.SerialNumber.Equals(input.SerialNumber))
                 ) && 
                 (
                     this.Metadata == input.Metadata ||
@@ -333,8 +333,8 @@ namespace Obada.Client.Model
                     hashCode = hashCode * 59 + this.Manufacturer.GetHashCode();
                 if (this.PartNumber != null)
                     hashCode = hashCode * 59 + this.PartNumber.GetHashCode();
-                if (this.SerialNumberHash != null)
-                    hashCode = hashCode * 59 + this.SerialNumberHash.GetHashCode();
+                if (this.SerialNumber != null)
+                    hashCode = hashCode * 59 + this.SerialNumber.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Documents != null)
