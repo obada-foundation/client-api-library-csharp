@@ -91,7 +91,7 @@ namespace Obada.Client.Model
         /// <param name="metadata">Get description from Rohi.</param>
         /// <param name="documents">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
         /// <param name="structuredData">Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)).</param>
-        public ClientObit(int id = default(int), string obitDid = default(string), string usn = default(string), string ownerDid = default(string), ObitStatusEnum? obitStatus = default(ObitStatusEnum?), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), DateTime modifiedAt = default(DateTime), string rootHash = default(string), List<Object> metadata = default(List<Object>), List<Object> documents = default(List<Object>), List<Object> structuredData = default(List<Object>))
+        public ClientObit(int id = default(int), string obitDid = default(string), string usn = default(string), string ownerDid = default(string), ObitStatusEnum? obitStatus = default(ObitStatusEnum?), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), DateTime modifiedAt = default(DateTime), string rootHash = default(string), Object metadata = default(Object), Object documents = default(Object), Object structuredData = default(Object))
         {
             this.Id = id;
             this.ObitDid = obitDid;
@@ -168,21 +168,21 @@ namespace Obada.Client.Model
         /// </summary>
         /// <value>Get description from Rohi</value>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public List<Object> Metadata { get; set; }
+        public Object Metadata { get; set; }
 
         /// <summary>
         /// To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. 
         /// </summary>
         /// <value>To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. </value>
         [DataMember(Name="documents", EmitDefaultValue=false)]
-        public List<Object> Documents { get; set; }
+        public Object Documents { get; set; }
 
         /// <summary>
         /// Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))
         /// </summary>
         /// <value>Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))</value>
         [DataMember(Name="structured_data", EmitDefaultValue=false)]
-        public List<Object> StructuredData { get; set; }
+        public Object StructuredData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -291,21 +291,18 @@ namespace Obada.Client.Model
                 ) && 
                 (
                     this.Metadata == input.Metadata ||
-                    this.Metadata != null &&
-                    input.Metadata != null &&
-                    this.Metadata.SequenceEqual(input.Metadata)
+                    (this.Metadata != null &&
+                    this.Metadata.Equals(input.Metadata))
                 ) && 
                 (
                     this.Documents == input.Documents ||
-                    this.Documents != null &&
-                    input.Documents != null &&
-                    this.Documents.SequenceEqual(input.Documents)
+                    (this.Documents != null &&
+                    this.Documents.Equals(input.Documents))
                 ) && 
                 (
                     this.StructuredData == input.StructuredData ||
-                    this.StructuredData != null &&
-                    input.StructuredData != null &&
-                    this.StructuredData.SequenceEqual(input.StructuredData)
+                    (this.StructuredData != null &&
+                    this.StructuredData.Equals(input.StructuredData))
                 );
         }
 
