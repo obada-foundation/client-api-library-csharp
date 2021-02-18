@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obada.Client", "src\Obada.Client\Obada.Client.csproj", "{5A95FA25-83C7-456F-AE00-576F94F07810}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obada.Client", "src\Obada.Client\Obada.Client.csproj", "{10549DA0-7464-4F08-A1AD-1995EFC60EB8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obada.Client.Test", "src\Obada.Client.Test\Obada.Client.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5A95FA25-83C7-456F-AE00-576F94F07810}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A95FA25-83C7-456F-AE00-576F94F07810}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A95FA25-83C7-456F-AE00-576F94F07810}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A95FA25-83C7-456F-AE00-576F94F07810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10549DA0-7464-4F08-A1AD-1995EFC60EB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10549DA0-7464-4F08-A1AD-1995EFC60EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10549DA0-7464-4F08-A1AD-1995EFC60EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10549DA0-7464-4F08-A1AD-1995EFC60EB8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -12,7 +12,7 @@ Contact: techops@obada.io
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5A95FA25-83C7-456F-AE00-576F94F07810}</ProjectGuid>
+    <ProjectGuid>{10549DA0-7464-4F08-A1AD-1995EFC60EB8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Obada.Client</RootNamespace>
