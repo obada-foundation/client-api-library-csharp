@@ -15,9 +15,9 @@ Name | Type | Description | Notes
 **SerialNumberHash** | **string** |  | [optional] 
 **ModifiedAt** | **DateTime** |  | [optional] 
 **RootHash** | **string** |  | [optional] 
-**Metadata** | [**List&lt;LocalObitMetadata&gt;**](LocalObitMetadata.md) | Get description from Rohi | [optional] 
-**Documents** | [**List&lt;LocalObitDocuments&gt;**](LocalObitDocuments.md) | To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard.  | [optional] 
-**StructuredData** | [**List&lt;LocalObitStructuredData&gt;**](LocalObitStructuredData.md) | Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)) | [optional] 
+**Metadata** | **List&lt;Object&gt;** | Get description from Rohi | [optional] 
+**Documents** | **List&lt;Object&gt;** | To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard.  | [optional] 
+**StructuredData** | **List&lt;Object&gt;** | Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

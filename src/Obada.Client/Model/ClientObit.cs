@@ -91,7 +91,7 @@ namespace Obada.Client.Model
         /// <param name="metadata">Get description from Rohi.</param>
         /// <param name="documents">To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. .</param>
         /// <param name="structuredData">Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value)).</param>
-        public ClientObit(int id = default(int), string obitDid = default(string), string usn = default(string), string ownerDid = default(string), ObitStatusEnum? obitStatus = default(ObitStatusEnum?), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), DateTime modifiedAt = default(DateTime), string rootHash = default(string), List<LocalObitMetadata> metadata = default(List<LocalObitMetadata>), List<LocalObitDocuments> documents = default(List<LocalObitDocuments>), List<LocalObitStructuredData> structuredData = default(List<LocalObitStructuredData>))
+        public ClientObit(int id = default(int), string obitDid = default(string), string usn = default(string), string ownerDid = default(string), ObitStatusEnum? obitStatus = default(ObitStatusEnum?), string manufacturer = default(string), string partNumber = default(string), string serialNumberHash = default(string), DateTime modifiedAt = default(DateTime), string rootHash = default(string), List<Object> metadata = default(List<Object>), List<Object> documents = default(List<Object>), List<Object> structuredData = default(List<Object>))
         {
             this.Id = id;
             this.ObitDid = obitDid;
@@ -168,21 +168,21 @@ namespace Obada.Client.Model
         /// </summary>
         /// <value>Get description from Rohi</value>
         [DataMember(Name="metadata", EmitDefaultValue=false)]
-        public List<LocalObitMetadata> Metadata { get; set; }
+        public List<Object> Metadata { get; set; }
 
         /// <summary>
         /// To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. 
         /// </summary>
         /// <value>To generate this link, take an SHA-256 hash of the document, and link to it as https://www.some-website.com?h1&#x3D;hash-of-document. Note this does not yet adhere to the hashlink standard. </value>
         [DataMember(Name="documents", EmitDefaultValue=false)]
-        public List<LocalObitDocuments> Documents { get; set; }
+        public List<Object> Documents { get; set; }
 
         /// <summary>
         /// Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))
         /// </summary>
         /// <value>Same as metadata but bigger. Key (string) &#x3D;&gt; Value (string) (hash per line sha256(key + value))</value>
         [DataMember(Name="structured_data", EmitDefaultValue=false)]
-        public List<LocalObitStructuredData> StructuredData { get; set; }
+        public List<Object> StructuredData { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
