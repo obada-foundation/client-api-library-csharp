@@ -28,24 +28,24 @@ namespace Obada.Client.Model
     /// Document hashlink
     /// </summary>
     [DataContract]
-    public partial class LocalObitDocuments :  IEquatable<LocalObitDocuments>, IValidatableObject
+    public partial class LocalObitDocumentsInner :  IEquatable<LocalObitDocumentsInner>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalObitDocuments" /> class.
+        /// Initializes a new instance of the <see cref="LocalObitDocumentsInner" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LocalObitDocuments() { }
+        protected LocalObitDocumentsInner() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalObitDocuments" /> class.
+        /// Initializes a new instance of the <see cref="LocalObitDocumentsInner" /> class.
         /// </summary>
         /// <param name="name">Associative name of hashlink (required).</param>
         /// <param name="hashlink">Hashlink (required).</param>
-        public LocalObitDocuments(string name = default(string), string hashlink = default(string))
+        public LocalObitDocumentsInner(string name = default(string), string hashlink = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new InvalidDataException("name is a required property for LocalObitDocuments and cannot be null");
+                throw new InvalidDataException("name is a required property for LocalObitDocumentsInner and cannot be null");
             }
             else
             {
@@ -55,7 +55,7 @@ namespace Obada.Client.Model
             // to ensure "hashlink" is required (not null)
             if (hashlink == null)
             {
-                throw new InvalidDataException("hashlink is a required property for LocalObitDocuments and cannot be null");
+                throw new InvalidDataException("hashlink is a required property for LocalObitDocumentsInner and cannot be null");
             }
             else
             {
@@ -85,7 +85,7 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LocalObitDocuments {\n");
+            sb.Append("class LocalObitDocumentsInner {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Hashlink: ").Append(Hashlink).Append("\n");
             sb.Append("}\n");
@@ -108,15 +108,15 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LocalObitDocuments);
+            return this.Equals(input as LocalObitDocumentsInner);
         }
 
         /// <summary>
-        /// Returns true if LocalObitDocuments instances are equal
+        /// Returns true if LocalObitDocumentsInner instances are equal
         /// </summary>
-        /// <param name="input">Instance of LocalObitDocuments to be compared</param>
+        /// <param name="input">Instance of LocalObitDocumentsInner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LocalObitDocuments input)
+        public bool Equals(LocalObitDocumentsInner input)
         {
             if (input == null)
                 return false;

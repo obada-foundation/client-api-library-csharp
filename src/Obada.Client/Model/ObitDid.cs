@@ -138,7 +138,7 @@ namespace Obada.Client.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for _ObitDid, length must be less than 256.", new [] { "_ObitDid" });
             }
 
- 
+
             yield break;
         }
     }

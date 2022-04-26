@@ -1,5 +1,5 @@
 
-# Obada.Client.Model.LocalObitMetadata
+# Obada.Client.Model.LocalObitMetadataInner
 
 ## Properties
 

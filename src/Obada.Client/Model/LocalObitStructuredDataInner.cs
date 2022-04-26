@@ -28,24 +28,24 @@ namespace Obada.Client.Model
     /// A record that represent key/value structure data record
     /// </summary>
     [DataContract]
-    public partial class LocalObitStructuredData :  IEquatable<LocalObitStructuredData>, IValidatableObject
+    public partial class LocalObitStructuredDataInner :  IEquatable<LocalObitStructuredDataInner>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalObitStructuredData" /> class.
+        /// Initializes a new instance of the <see cref="LocalObitStructuredDataInner" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LocalObitStructuredData() { }
+        protected LocalObitStructuredDataInner() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LocalObitStructuredData" /> class.
+        /// Initializes a new instance of the <see cref="LocalObitStructuredDataInner" /> class.
         /// </summary>
         /// <param name="key">Structure data key (required).</param>
         /// <param name="value">Structure data value as a json string (required).</param>
-        public LocalObitStructuredData(string key = default(string), string value = default(string))
+        public LocalObitStructuredDataInner(string key = default(string), string value = default(string))
         {
             // to ensure "key" is required (not null)
             if (key == null)
             {
-                throw new InvalidDataException("key is a required property for LocalObitStructuredData and cannot be null");
+                throw new InvalidDataException("key is a required property for LocalObitStructuredDataInner and cannot be null");
             }
             else
             {
@@ -55,7 +55,7 @@ namespace Obada.Client.Model
             // to ensure "value" is required (not null)
             if (value == null)
             {
-                throw new InvalidDataException("value is a required property for LocalObitStructuredData and cannot be null");
+                throw new InvalidDataException("value is a required property for LocalObitStructuredDataInner and cannot be null");
             }
             else
             {
@@ -85,7 +85,7 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LocalObitStructuredData {\n");
+            sb.Append("class LocalObitStructuredDataInner {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
@@ -108,15 +108,15 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LocalObitStructuredData);
+            return this.Equals(input as LocalObitStructuredDataInner);
         }
 
         /// <summary>
-        /// Returns true if LocalObitStructuredData instances are equal
+        /// Returns true if LocalObitStructuredDataInner instances are equal
         /// </summary>
-        /// <param name="input">Instance of LocalObitStructuredData to be compared</param>
+        /// <param name="input">Instance of LocalObitStructuredDataInner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LocalObitStructuredData input)
+        public bool Equals(LocalObitStructuredDataInner input)
         {
             if (input == null)
                 return false;

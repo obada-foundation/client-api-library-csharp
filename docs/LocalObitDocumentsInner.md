@@ -1,12 +1,12 @@
 
-# Obada.Client.Model.LocalObitStructuredData
+# Obada.Client.Model.LocalObitDocumentsInner
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** | Structure data key | 
-**Value** | **string** | Structure data value as a json string | 
+**Name** | **string** | Associative name of hashlink | 
+**Hashlink** | **string** | Hashlink | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
