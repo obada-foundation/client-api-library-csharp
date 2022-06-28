@@ -1,26 +1,23 @@
 # Obada.Client.Api.ObitApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://obs.node.obada.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**DownloadObitFromChain**](ObitApi.md#downloadobitfromchain) | **POST** /api/server/obit/download | Download Obit from Blockchain
-[**FetchObitFromChain**](ObitApi.md#fetchobitfromchain) | **GET** /api/server/obit/{obit_did} | Get Obit From Blockchain
-[**GenerateObitDef**](ObitApi.md#generateobitdef) | **GET** /api/obit/definition | Generate Obit Definition
-[**GenerateRootHash**](ObitApi.md#generateroothash) | **POST** /api/obit/hash | Generates The Root Hash using the data provided.
-[**GetClientObit**](ObitApi.md#getclientobit) | **GET** /api/client/obit/{obit_did} | Get Client Obit
-[**SaveClientObit**](ObitApi.md#saveclientobit) | **POST** /api/client/obit | Save Client Obit
-[**UploadObit**](ObitApi.md#uploadobit) | **POST** /api/server/obit/upload | Upload Obit to Blockchain
+[**Get**](ObitApi.md#get) | **GET** /obits/{key} | Get Obit by DID or USN
+[**History**](ObitApi.md#history) | **GET** /obits/{key}/history | Get Obit history by DID or USN
+[**Save**](ObitApi.md#save) | **POST** /obits | Save Obit
+[**Search**](ObitApi.md#search) | **GET** /obits | Search obits by query
 
 
 
-## DownloadObitFromChain
+## Get
 
-> ClientObitResponse DownloadObitFromChain (ObitDid obitDid = null)
+> Obit Get (string key)
 
-Download Obit from Blockchain
+Get Obit by DID or USN
 
-Downloads the Obit information from the blockchain to the client.
+Get a single Obit by given ObitDID or USN
 
 ### Example
 
@@ -33,23 +30,26 @@ using Obada.Client.Model;
 
 namespace Example
 {
-    public class DownloadObitFromChainExample
+    public class GetExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new ObitApi(Configuration.Default);
-            var obitDid = new ObitDid(); // ObitDid |  (optional) 
+            var key = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID or USN argument
 
             try
             {
-                // Download Obit from Blockchain
-                ClientObitResponse result = apiInstance.DownloadObitFromChain(obitDid);
+                // Get Obit by DID or USN
+                Obit result = apiInstance.Get(key);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ObitApi.DownloadObitFromChain: " + e.Message );
+                Debug.Print("Exception when calling ObitApi.Get: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -63,91 +63,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obitDid** | [**ObitDid**](ObitDid.md)|  | [optional] 
+ **key** | **string**| The given ObitDID or USN argument | 
 
 ### Return type
 
-[**ClientObitResponse**](ClientObitResponse.md)
+[**Obit**](Obit.md)
 
 ### Authorization
 
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the client obit downloaded from blockchain |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## FetchObitFromChain
-
-> BlockChainObitResponse FetchObitFromChain (string obitDid)
-
-Get Obit From Blockchain
-
-Retrieves Obit information from blockchain but does not download it.
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Obada.Client.Api;
-using Obada.Client.Client;
-using Obada.Client.Model;
-
-namespace Example
-{
-    public class FetchObitFromChainExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            var apiInstance = new ObitApi(Configuration.Default);
-            var obitDid = did:obada:81413bc1ad2074a6ae35d1f65f64f1bca2e8a20959f37ef0349a729ddc567d9b;  // string | Required.
-
-            try
-            {
-                // Get Obit From Blockchain
-                BlockChainObitResponse result = apiInstance.FetchObitFromChain(obitDid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ObitApi.FetchObitFromChain: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| Required. | 
-
-### Return type
-
-[**BlockChainObitResponse**](BlockChainObitResponse.md)
-
-### Authorization
-
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -158,7 +82,9 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Array with ObitDID and USN Information |  -  |
+| **200** |  |  -  |
+| **404** | The requested resource could not be found. |  -  |
+| **500** | Internal server error. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -166,13 +92,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GenerateObitDef
+## History
 
-> ObitDefinitionResponse GenerateObitDef (string manufacturer, string partNumber, string serialNumber)
+> History200Response History (string key)
 
-Generate Obit Definition
+Get Obit history by DID or USN
 
-Returns the Obit Definition for a given device_id, part_number and serial_number input.
+Shows the history of changes by given Obit with ObitDID or USN
 
 ### Example
 
@@ -185,25 +111,26 @@ using Obada.Client.Model;
 
 namespace Example
 {
-    public class GenerateObitDefExample
+    public class HistoryExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new ObitApi(Configuration.Default);
-            var manufacturer = Apple;  // string | Device Id (Required)
-            var partNumber = 123456789;  // string | Part Number (Required)
-            var serialNumber = 123456789;  // string | Serial Number (Required)
+            var key = did:obada:fe096095-e0f0-4918-9607-6567bd5756b5;  // string | The given ObitDID or USN argument
 
             try
             {
-                // Generate Obit Definition
-                ObitDefinitionResponse result = apiInstance.GenerateObitDef(manufacturer, partNumber, serialNumber);
+                // Get Obit history by DID or USN
+                History200Response result = apiInstance.History(key);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ObitApi.GenerateObitDef: " + e.Message );
+                Debug.Print("Exception when calling ObitApi.History: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -217,17 +144,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **manufacturer** | **string**| Device Id (Required) | 
- **partNumber** | **string**| Part Number (Required) | 
- **serialNumber** | **string**| Serial Number (Required) | 
+ **key** | **string**| The given ObitDID or USN argument | 
 
 ### Return type
 
-[**ObitDefinitionResponse**](ObitDefinitionResponse.md)
+[**History200Response**](History200Response.md)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -238,7 +163,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns the Obit Definition |  -  |
+| **200** | Collection of historical changes for given obit |  -  |
+| **404** | The requested resource could not be found. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -246,11 +172,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GenerateRootHash
+## Save
 
-> RootHashResponse GenerateRootHash (LocalObit localObit = null)
+> Obit Save (SaveObitRequest saveObitRequest = null)
 
-Generates The Root Hash using the data provided.
+Save Obit
+
+Returns Obit with updated checksum if data was changed.
 
 ### Example
 
@@ -263,23 +191,26 @@ using Obada.Client.Model;
 
 namespace Example
 {
-    public class GenerateRootHashExample
+    public class SaveExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new ObitApi(Configuration.Default);
-            var localObit = new LocalObit(); // LocalObit |  (optional) 
+            var saveObitRequest = new SaveObitRequest(); // SaveObitRequest |  (optional) 
 
             try
             {
-                // Generates The Root Hash using the data provided.
-                RootHashResponse result = apiInstance.GenerateRootHash(localObit);
+                // Save Obit
+                Obit result = apiInstance.Save(saveObitRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ObitApi.GenerateRootHash: " + e.Message );
+                Debug.Print("Exception when calling ObitApi.Save: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -293,26 +224,28 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **localObit** | [**LocalObit**](LocalObit.md)|  | [optional] 
+ **saveObitRequest** | [**SaveObitRequest**](SaveObitRequest.md)|  | [optional] 
 
 ### Return type
 
-[**RootHashResponse**](RootHashResponse.md)
+[**Obit**](Obit.md)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: application/json
+- **Content-Type**: application/json:
 - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns the root hash |  -  |
+| **200** |  |  -  |
+| **422** | The submitted entity could not be processed. |  -  |
+| **500** | Internal server error. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
@@ -320,11 +253,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## GetClientObit
+## Search
 
-> ClientObitResponse GetClientObit (string obitDid)
+> Obits Search (string q = null, int? offset = null)
 
-Get Client Obit
+Search obits by query
+
+Implements a fulltext search for obits by \"searchTerm\".
 
 ### Example
 
@@ -337,23 +272,27 @@ using Obada.Client.Model;
 
 namespace Example
 {
-    public class GetClientObitExample
+    public class SearchExample
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
+            Configuration.Default.BasePath = "http://obs.node.obada.io";
+            // Configure HTTP bearer authorization: bearerAuth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new ObitApi(Configuration.Default);
-            var obitDid = did:obada:81413bc1ad2074a6ae35d1f65f64f1bca2e8a20959f37ef0349a729ddc567d9b;  // string | Required.
+            var q = fe403a1afe16203f4b8bb3a0e72d3e17567897bc15293e4a87b663e441030aea;  // string | Query argument that used for a fulltext search (optional) 
+            var offset = 0;  // int? | Number of records to skip for pagination. (optional)  (default to 0)
 
             try
             {
-                // Get Client Obit
-                ClientObitResponse result = apiInstance.GetClientObit(obitDid);
+                // Search obits by query
+                Obits result = apiInstance.Search(q, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ObitApi.GetClientObit: " + e.Message );
+                Debug.Print("Exception when calling ObitApi.Search: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -367,15 +306,16 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **obitDid** | **string**| Required. | 
+ **q** | **string**| Query argument that used for a fulltext search | [optional] 
+ **offset** | **int?**| Number of records to skip for pagination. | [optional] [default to 0]
 
 ### Return type
 
-[**ClientObitResponse**](ClientObitResponse.md)
+[**Obits**](Obits.md)
 
 ### Authorization
 
-No authorization required
+[bearerAuth](../README.md#bearerAuth)
 
 ### HTTP request headers
 
@@ -386,157 +326,8 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Returns the obit saved on the client |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SaveClientObit
-
-> ClientObitResponse SaveClientObit (LocalObit localObit = null)
-
-Save Client Obit
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Obada.Client.Api;
-using Obada.Client.Client;
-using Obada.Client.Model;
-
-namespace Example
-{
-    public class SaveClientObitExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            var apiInstance = new ObitApi(Configuration.Default);
-            var localObit = new LocalObit(); // LocalObit |  (optional) 
-
-            try
-            {
-                // Save Client Obit
-                ClientObitResponse result = apiInstance.SaveClientObit(localObit);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ObitApi.SaveClientObit: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **localObit** | [**LocalObit**](LocalObit.md)|  | [optional] 
-
-### Return type
-
-[**ClientObitResponse**](ClientObitResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns the obit that was saved |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UploadObit
-
-> BaseResponse UploadObit (ObitDid obitDid = null)
-
-Upload Obit to Blockchain
-
-Uploads Obit from client to the Blockchain
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Obada.Client.Api;
-using Obada.Client.Client;
-using Obada.Client.Model;
-
-namespace Example
-{
-    public class UploadObitExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            var apiInstance = new ObitApi(Configuration.Default);
-            var obitDid = new ObitDid(); // ObitDid |  (optional) 
-
-            try
-            {
-                // Upload Obit to Blockchain
-                BaseResponse result = apiInstance.UploadObit(obitDid);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ObitApi.UploadObit: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **obitDid** | [**ObitDid**](ObitDid.md)|  | [optional] 
-
-### Return type
-
-[**BaseResponse**](BaseResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Returns a status of the operation |  -  |
+| **200** | List of obits with pagination responded by given arguments. |  -  |
+| **500** | Internal server error. |  -  |
 
 [[Back to top]](#)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
