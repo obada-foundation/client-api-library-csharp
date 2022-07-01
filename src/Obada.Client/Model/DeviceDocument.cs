@@ -40,8 +40,8 @@ namespace Obada.Client.Model
         /// </summary>
         /// <param name="name">Associative name of device document (required).</param>
         /// <param name="documentFile">documentFile (required).</param>
-        /// <param name="shouldEncrypt">If true then client helper will encrypt document with account key (default to true).</param>
-        public DeviceDocument(string name = default(string), string documentFile = default(string), bool shouldEncrypt = true)
+        /// <param name="shouldEncrypt">If true then client helper will encrypt document with account key (default to false).</param>
+        public DeviceDocument(string name = default(string), string documentFile = default(string), bool shouldEncrypt = false)
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -66,7 +66,7 @@ namespace Obada.Client.Model
             // use default value if no "shouldEncrypt" provided
             if (shouldEncrypt == null)
             {
-                this.ShouldEncrypt = true;
+                this.ShouldEncrypt = false;
             }
             else
             {
