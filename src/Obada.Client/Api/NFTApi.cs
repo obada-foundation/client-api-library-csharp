@@ -90,6 +90,27 @@ namespace Obada.Client.Api
         /// <param name="sendNFTRequest"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SendWithHttpInfo (string key, SendNFTRequest sendNFTRequest = default(SendNFTRequest));
+        /// <summary>
+        /// Update NFT metadata
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <returns></returns>
+        void UpdateMetadata (string key);
+
+        /// <summary>
+        /// Update NFT metadata
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateMetadataWithHttpInfo (string key);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -163,6 +184,29 @@ namespace Obada.Client.Api
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SendWithHttpInfoAsync (string key, SendNFTRequest sendNFTRequest = default(SendNFTRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update NFT metadata
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateMetadataAsync (string key, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update NFT metadata
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMetadataWithHttpInfoAsync (string key, CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -725,6 +769,151 @@ namespace Obada.Client.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("Send", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Update NFT metadata 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <returns></returns>
+        public void UpdateMetadata (string key)
+        {
+             UpdateMetadataWithHttpInfo(key);
+        }
+
+        /// <summary>
+        /// Update NFT metadata 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateMetadataWithHttpInfo (string key)
+        {
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling NFTApi->UpdateMetadata");
+
+            var localVarPath = "/nft/{key}/metadata";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateMetadata", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Update NFT metadata 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateMetadataAsync (string key, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await UpdateMetadataWithHttpInfoAsync(key, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Update NFT metadata 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="key">The given ObitDID or USN argument</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateMetadataWithHttpInfoAsync (string key, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'key' is set
+            if (key == null)
+                throw new ApiException(400, "Missing required parameter 'key' when calling NFTApi->UpdateMetadata");
+
+            var localVarPath = "/nft/{key}/metadata";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (key != null) localVarPathParams.Add("key", this.Configuration.ApiClient.ParameterToString(key)); // path parameter
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateMetadata", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -113,6 +113,7 @@ Class | Method | HTTP request | Description
 *NFTApi* | [**Mint**](docs/NFTApi.md#mint) | **POST** /nft/{key}/mint | Mints NFT
 *NFTApi* | [**Nft**](docs/NFTApi.md#nft) | **GET** /nft/{key} | Fetch NFT from OBADA blockchain Node
 *NFTApi* | [**Send**](docs/NFTApi.md#send) | **POST** /nft/{key}/send | Send NFT to another address
+*NFTApi* | [**UpdateMetadata**](docs/NFTApi.md#updatemetadata) | **POST** /nft/{key}/metadata | Update NFT metadata
 *ObitApi* | [**Get**](docs/ObitApi.md#get) | **GET** /obits/{key} | Get Obit by DID or USN
 *ObitApi* | [**History**](docs/ObitApi.md#history) | **GET** /obits/{key}/history | Get Obit history by DID or USN
 *ObitApi* | [**Save**](docs/ObitApi.md#save) | **POST** /obits | Save Obit

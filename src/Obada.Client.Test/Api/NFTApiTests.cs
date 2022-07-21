@@ -100,6 +100,18 @@ namespace Obada.Client.Test
             
         }
         
+        /// <summary>
+        /// Test UpdateMetadata
+        /// </summary>
+        [Test]
+        public void UpdateMetadataTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string key = null;
+            //instance.UpdateMetadata(key);
+            
+        }
+        
     }
 
 }
