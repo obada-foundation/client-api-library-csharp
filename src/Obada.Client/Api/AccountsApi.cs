@@ -26,6 +26,46 @@ namespace Obada.Client.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Fetches an information about single account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <returns>Account</returns>
+        Account Account (string address);
+
+        /// <summary>
+        /// Fetches an information about single account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <returns>ApiResponse of Account</returns>
+        ApiResponse<Account> AccountWithHttpInfo (string address);
+        /// <summary>
+        /// Returns a list of OBADA accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Accounts</returns>
+        Accounts Accounts ();
+
+        /// <summary>
+        /// Returns a list of OBADA accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Accounts</returns>
+        ApiResponse<Accounts> AccountsWithHttpInfo ();
+        /// <summary>
         /// Shows account balance of OBADA address
         /// </summary>
         /// <remarks>
@@ -45,28 +85,261 @@ namespace Obada.Client.Api
         /// <returns>ApiResponse of AccountBalance</returns>
         ApiResponse<AccountBalance> BalanceWithHttpInfo ();
         /// <summary>
-        /// Creates a new Account
+        /// Export OBADA account (private key) from client-helper
         /// </summary>
         /// <remarks>
-        /// Creates a new account, using JWT uid as a internal user id
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
-        /// <returns>Account</returns>
-        Account CreateAccount (NewAccountRequest newAccountRequest = default(NewAccountRequest));
+        /// <param name="exportAccountRequest"> (optional)</param>
+        /// <returns>ExportAccountResponse</returns>
+        ExportAccountResponse ExportAccount (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest));
 
         /// <summary>
-        /// Creates a new Account
+        /// Export OBADA account (private key) from client-helper
         /// </summary>
         /// <remarks>
-        /// Creates a new account, using JWT uid as a internal user id
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
-        /// <returns>ApiResponse of Account</returns>
-        ApiResponse<Account> CreateAccountWithHttpInfo (NewAccountRequest newAccountRequest = default(NewAccountRequest));
+        /// <param name="exportAccountRequest"> (optional)</param>
+        /// <returns>ApiResponse of ExportAccountResponse</returns>
+        ApiResponse<ExportAccountResponse> ExportAccountWithHttpInfo (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest));
+        /// <summary>
+        /// Fetching an existing mnemonic phrase
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>NewMnemonic</returns>
+        NewMnemonic GetMnemonic ();
+
+        /// <summary>
+        /// Fetching an existing mnemonic phrase
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of NewMnemonic</returns>
+        ApiResponse<NewMnemonic> GetMnemonicWithHttpInfo ();
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <returns></returns>
+        void ImportAccount (ImportAccountRequest importAccountRequest = default(ImportAccountRequest));
+
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ImportAccountWithHttpInfo (ImportAccountRequest importAccountRequest = default(ImportAccountRequest));
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns></returns>
+        void ImportWallet (MnemonicRequest mnemonicRequest = default(MnemonicRequest));
+
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ImportWalletWithHttpInfo (MnemonicRequest mnemonicRequest = default(MnemonicRequest));
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns></returns>
+        void NewAccount (AccountRequest accountRequest = default(AccountRequest));
+
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> NewAccountWithHttpInfo (AccountRequest accountRequest = default(AccountRequest));
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>NewMnemonic</returns>
+        NewMnemonic NewMnemonic ();
+
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of NewMnemonic</returns>
+        ApiResponse<NewMnemonic> NewMnemonicWithHttpInfo ();
+        /// <summary>
+        /// Creates profile HD wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns></returns>
+        void NewWallet (MnemonicRequest mnemonicRequest = default(MnemonicRequest));
+
+        /// <summary>
+        /// Creates profile HD wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> NewWalletWithHttpInfo (MnemonicRequest mnemonicRequest = default(MnemonicRequest));
+        /// <summary>
+        /// Register a new client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// Creates a new profile, using JWT uid as a internal user id
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <returns>Profile</returns>
+        Profile Register (RegisterRequest registerRequest = default(RegisterRequest));
+
+        /// <summary>
+        /// Register a new client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// Creates a new profile, using JWT uid as a internal user id
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <returns>ApiResponse of Profile</returns>
+        ApiResponse<Profile> RegisterWithHttpInfo (RegisterRequest registerRequest = default(RegisterRequest));
+        /// <summary>
+        /// Send coins from selected account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <returns></returns>
+        void SendCoins (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest));
+
+        /// <summary>
+        /// Send coins from selected account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> SendCoinsWithHttpInfo (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest));
+        /// <summary>
+        /// Sets account specific information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns></returns>
+        void UpdateAccount (string address, AccountRequest accountRequest = default(AccountRequest));
+
+        /// <summary>
+        /// Sets account specific information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateAccountWithHttpInfo (string address, AccountRequest accountRequest = default(AccountRequest));
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Fetches an information about single account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Account</returns>
+        System.Threading.Tasks.Task<Account> AccountAsync (string address, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Fetches an information about single account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Account)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Account>> AccountWithHttpInfoAsync (string address, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Returns a list of OBADA accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Accounts</returns>
+        System.Threading.Tasks.Task<Accounts> AccountsAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Returns a list of OBADA accounts
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Accounts)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Accounts>> AccountsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Shows account balance of OBADA address
         /// </summary>
@@ -89,28 +362,235 @@ namespace Obada.Client.Api
         /// <returns>Task of ApiResponse (AccountBalance)</returns>
         System.Threading.Tasks.Task<ApiResponse<AccountBalance>> BalanceWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates a new Account
+        /// Export OBADA account (private key) from client-helper
         /// </summary>
         /// <remarks>
-        /// Creates a new account, using JWT uid as a internal user id
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
+        /// <param name="exportAccountRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of Account</returns>
-        System.Threading.Tasks.Task<Account> CreateAccountAsync (NewAccountRequest newAccountRequest = default(NewAccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ExportAccountResponse</returns>
+        System.Threading.Tasks.Task<ExportAccountResponse> ExportAccountAsync (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest), CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Creates a new Account
+        /// Export OBADA account (private key) from client-helper
         /// </summary>
         /// <remarks>
-        /// Creates a new account, using JWT uid as a internal user id
+        /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
+        /// <param name="exportAccountRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (Account)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Account>> CreateAccountWithHttpInfoAsync (NewAccountRequest newAccountRequest = default(NewAccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse (ExportAccountResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExportAccountResponse>> ExportAccountWithHttpInfoAsync (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Fetching an existing mnemonic phrase
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of NewMnemonic</returns>
+        System.Threading.Tasks.Task<NewMnemonic> GetMnemonicAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Fetching an existing mnemonic phrase
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (NewMnemonic)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NewMnemonic>> GetMnemonicWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ImportAccountAsync (ImportAccountRequest importAccountRequest = default(ImportAccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ImportAccountWithHttpInfoAsync (ImportAccountRequest importAccountRequest = default(ImportAccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ImportWalletAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ImportWalletWithHttpInfoAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task NewAccountAsync (AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> NewAccountWithHttpInfoAsync (AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of NewMnemonic</returns>
+        System.Threading.Tasks.Task<NewMnemonic> NewMnemonicAsync (CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (NewMnemonic)</returns>
+        System.Threading.Tasks.Task<ApiResponse<NewMnemonic>> NewMnemonicWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Creates profile HD wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task NewWalletAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Creates profile HD wallet
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> NewWalletWithHttpInfoAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Register a new client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// Creates a new profile, using JWT uid as a internal user id
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Profile</returns>
+        System.Threading.Tasks.Task<Profile> RegisterAsync (RegisterRequest registerRequest = default(RegisterRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Register a new client-helper user profile
+        /// </summary>
+        /// <remarks>
+        /// Creates a new profile, using JWT uid as a internal user id
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Profile)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Profile>> RegisterWithHttpInfoAsync (RegisterRequest registerRequest = default(RegisterRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Send coins from selected account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task SendCoinsAsync (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send coins from selected account
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> SendCoinsWithHttpInfoAsync (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest), CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Sets account specific information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateAccountAsync (string address, AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Sets account specific information
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAccountWithHttpInfoAsync (string address, AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -220,6 +700,288 @@ namespace Obada.Client.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Fetches an information about single account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <returns>Account</returns>
+        public Account Account (string address)
+        {
+             ApiResponse<Account> localVarResponse = AccountWithHttpInfo(address);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Fetches an information about single account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <returns>ApiResponse of Account</returns>
+        public ApiResponse<Account> AccountWithHttpInfo (string address)
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->Account");
+
+            var localVarPath = "/accounts/{address}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Account", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Account>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+        }
+
+        /// <summary>
+        /// Fetches an information about single account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Account</returns>
+        public async System.Threading.Tasks.Task<Account> AccountAsync (string address, CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<Account> localVarResponse = await AccountWithHttpInfoAsync(address, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Fetches an information about single account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Account)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Account>> AccountWithHttpInfoAsync (string address, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->Account");
+
+            var localVarPath = "/accounts/{address}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Account", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Account>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+        }
+
+        /// <summary>
+        /// Returns a list of OBADA accounts 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Accounts</returns>
+        public Accounts Accounts ()
+        {
+             ApiResponse<Accounts> localVarResponse = AccountsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns a list of OBADA accounts 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Accounts</returns>
+        public ApiResponse<Accounts> AccountsWithHttpInfo ()
+        {
+
+            var localVarPath = "/accounts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Accounts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Accounts>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Accounts) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Accounts)));
+        }
+
+        /// <summary>
+        /// Returns a list of OBADA accounts 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Accounts</returns>
+        public async System.Threading.Tasks.Task<Accounts> AccountsAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<Accounts> localVarResponse = await AccountsWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Returns a list of OBADA accounts 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Accounts)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Accounts>> AccountsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Accounts", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Accounts>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Accounts) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Accounts)));
         }
 
         /// <summary>
@@ -358,27 +1120,27 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Creates a new Account Creates a new account, using JWT uid as a internal user id
+        /// Export OBADA account (private key) from client-helper 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
-        /// <returns>Account</returns>
-        public Account CreateAccount (NewAccountRequest newAccountRequest = default(NewAccountRequest))
+        /// <param name="exportAccountRequest"> (optional)</param>
+        /// <returns>ExportAccountResponse</returns>
+        public ExportAccountResponse ExportAccount (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest))
         {
-             ApiResponse<Account> localVarResponse = CreateAccountWithHttpInfo(newAccountRequest);
+             ApiResponse<ExportAccountResponse> localVarResponse = ExportAccountWithHttpInfo(exportAccountRequest);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Creates a new Account Creates a new account, using JWT uid as a internal user id
+        /// Export OBADA account (private key) from client-helper 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
-        /// <returns>ApiResponse of Account</returns>
-        public ApiResponse<Account> CreateAccountWithHttpInfo (NewAccountRequest newAccountRequest = default(NewAccountRequest))
+        /// <param name="exportAccountRequest"> (optional)</param>
+        /// <returns>ApiResponse of ExportAccountResponse</returns>
+        public ApiResponse<ExportAccountResponse> ExportAccountWithHttpInfo (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest))
         {
 
-            var localVarPath = "/accounts";
+            var localVarPath = "/accounts/export-account";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -400,13 +1162,13 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (newAccountRequest != null && newAccountRequest.GetType() != typeof(byte[]))
+            if (exportAccountRequest != null && exportAccountRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(newAccountRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(exportAccountRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = newAccountRequest; // byte array
+                localVarPostBody = exportAccountRequest; // byte array
             }
 
             // authentication (bearerAuth) required
@@ -425,40 +1187,40 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateAccount", localVarResponse);
+                Exception exception = ExceptionFactory("ExportAccount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Account>(localVarStatusCode,
+            return new ApiResponse<ExportAccountResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+                (ExportAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExportAccountResponse)));
         }
 
         /// <summary>
-        /// Creates a new Account Creates a new account, using JWT uid as a internal user id
+        /// Export OBADA account (private key) from client-helper 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
+        /// <param name="exportAccountRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of Account</returns>
-        public async System.Threading.Tasks.Task<Account> CreateAccountAsync (NewAccountRequest newAccountRequest = default(NewAccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ExportAccountResponse</returns>
+        public async System.Threading.Tasks.Task<ExportAccountResponse> ExportAccountAsync (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest), CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<Account> localVarResponse = await CreateAccountWithHttpInfoAsync(newAccountRequest, cancellationToken);
+             ApiResponse<ExportAccountResponse> localVarResponse = await ExportAccountWithHttpInfoAsync(exportAccountRequest, cancellationToken);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Creates a new Account Creates a new account, using JWT uid as a internal user id
+        /// Export OBADA account (private key) from client-helper 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="newAccountRequest"> (optional)</param>
+        /// <param name="exportAccountRequest"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (Account)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Account>> CreateAccountWithHttpInfoAsync (NewAccountRequest newAccountRequest = default(NewAccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse (ExportAccountResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ExportAccountResponse>> ExportAccountWithHttpInfoAsync (ExportAccountRequest exportAccountRequest = default(ExportAccountRequest), CancellationToken cancellationToken = default(CancellationToken))
         {
 
-            var localVarPath = "/accounts";
+            var localVarPath = "/accounts/export-account";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -480,13 +1242,13 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (newAccountRequest != null && newAccountRequest.GetType() != typeof(byte[]))
+            if (exportAccountRequest != null && exportAccountRequest.GetType() != typeof(byte[]))
             {
-                localVarPostBody = this.Configuration.ApiClient.Serialize(newAccountRequest); // http body (model) parameter
+                localVarPostBody = this.Configuration.ApiClient.Serialize(exportAccountRequest); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = newAccountRequest; // byte array
+                localVarPostBody = exportAccountRequest; // byte array
             }
 
             // authentication (bearerAuth) required
@@ -505,13 +1267,1394 @@ namespace Obada.Client.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateAccount", localVarResponse);
+                Exception exception = ExceptionFactory("ExportAccount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Account>(localVarStatusCode,
+            return new ApiResponse<ExportAccountResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (Account) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Account)));
+                (ExportAccountResponse) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(ExportAccountResponse)));
+        }
+
+        /// <summary>
+        /// Fetching an existing mnemonic phrase 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>NewMnemonic</returns>
+        public NewMnemonic GetMnemonic ()
+        {
+             ApiResponse<NewMnemonic> localVarResponse = GetMnemonicWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Fetching an existing mnemonic phrase 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of NewMnemonic</returns>
+        public ApiResponse<NewMnemonic> GetMnemonicWithHttpInfo ()
+        {
+
+            var localVarPath = "/accounts/mnemonic";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMnemonic", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<NewMnemonic>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (NewMnemonic) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NewMnemonic)));
+        }
+
+        /// <summary>
+        /// Fetching an existing mnemonic phrase 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of NewMnemonic</returns>
+        public async System.Threading.Tasks.Task<NewMnemonic> GetMnemonicAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<NewMnemonic> localVarResponse = await GetMnemonicWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Fetching an existing mnemonic phrase 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (NewMnemonic)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<NewMnemonic>> GetMnemonicWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/mnemonic";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetMnemonic", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<NewMnemonic>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (NewMnemonic) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NewMnemonic)));
+        }
+
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <returns></returns>
+        public void ImportAccount (ImportAccountRequest importAccountRequest = default(ImportAccountRequest))
+        {
+             ImportAccountWithHttpInfo(importAccountRequest);
+        }
+
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ImportAccountWithHttpInfo (ImportAccountRequest importAccountRequest = default(ImportAccountRequest))
+        {
+
+            var localVarPath = "/accounts/import-account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (importAccountRequest != null && importAccountRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(importAccountRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = importAccountRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ImportAccountAsync (ImportAccountRequest importAccountRequest = default(ImportAccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await ImportAccountWithHttpInfoAsync(importAccountRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Imports an existing OBADA account (private key) to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="importAccountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ImportAccountWithHttpInfoAsync (ImportAccountRequest importAccountRequest = default(ImportAccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/import-account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (importAccountRequest != null && importAccountRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(importAccountRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = importAccountRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns></returns>
+        public void ImportWallet (MnemonicRequest mnemonicRequest = default(MnemonicRequest))
+        {
+             ImportWalletWithHttpInfo(mnemonicRequest);
+        }
+
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> ImportWalletWithHttpInfo (MnemonicRequest mnemonicRequest = default(MnemonicRequest))
+        {
+
+            var localVarPath = "/accounts/import-wallet";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mnemonicRequest != null && mnemonicRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(mnemonicRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mnemonicRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportWallet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ImportWalletAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await ImportWalletWithHttpInfoAsync(mnemonicRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Imports an existing HD wallet to the client-helper user profile 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> ImportWalletWithHttpInfoAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/import-wallet";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mnemonicRequest != null && mnemonicRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(mnemonicRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mnemonicRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ImportWallet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns></returns>
+        public void NewAccount (AccountRequest accountRequest = default(AccountRequest))
+        {
+             NewAccountWithHttpInfo(accountRequest);
+        }
+
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> NewAccountWithHttpInfo (AccountRequest accountRequest = default(AccountRequest))
+        {
+
+            var localVarPath = "/accounts/new-account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (accountRequest != null && accountRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(accountRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = accountRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NewAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task NewAccountAsync (AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await NewAccountWithHttpInfoAsync(accountRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Creates a new OBADA account from HD wallet master key 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NewAccountWithHttpInfoAsync (AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/new-account";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (accountRequest != null && accountRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(accountRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = accountRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NewAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>NewMnemonic</returns>
+        public NewMnemonic NewMnemonic ()
+        {
+             ApiResponse<NewMnemonic> localVarResponse = NewMnemonicWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of NewMnemonic</returns>
+        public ApiResponse<NewMnemonic> NewMnemonicWithHttpInfo ()
+        {
+
+            var localVarPath = "/accounts/new-mnemonic";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NewMnemonic", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<NewMnemonic>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (NewMnemonic) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NewMnemonic)));
+        }
+
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of NewMnemonic</returns>
+        public async System.Threading.Tasks.Task<NewMnemonic> NewMnemonicAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<NewMnemonic> localVarResponse = await NewMnemonicWithHttpInfoAsync(cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Generate a new mnemonic phrase for seeding wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (NewMnemonic)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<NewMnemonic>> NewMnemonicWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/new-mnemonic";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NewMnemonic", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<NewMnemonic>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (NewMnemonic) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(NewMnemonic)));
+        }
+
+        /// <summary>
+        /// Creates profile HD wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns></returns>
+        public void NewWallet (MnemonicRequest mnemonicRequest = default(MnemonicRequest))
+        {
+             NewWalletWithHttpInfo(mnemonicRequest);
+        }
+
+        /// <summary>
+        /// Creates profile HD wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> NewWalletWithHttpInfo (MnemonicRequest mnemonicRequest = default(MnemonicRequest))
+        {
+
+            var localVarPath = "/accounts/new-wallet";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mnemonicRequest != null && mnemonicRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(mnemonicRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mnemonicRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NewWallet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Creates profile HD wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task NewWalletAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await NewWalletWithHttpInfoAsync(mnemonicRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Creates profile HD wallet 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mnemonicRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NewWalletWithHttpInfoAsync (MnemonicRequest mnemonicRequest = default(MnemonicRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/new-wallet";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mnemonicRequest != null && mnemonicRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(mnemonicRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mnemonicRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NewWallet", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Register a new client-helper user profile Creates a new profile, using JWT uid as a internal user id
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <returns>Profile</returns>
+        public Profile Register (RegisterRequest registerRequest = default(RegisterRequest))
+        {
+             ApiResponse<Profile> localVarResponse = RegisterWithHttpInfo(registerRequest);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Register a new client-helper user profile Creates a new profile, using JWT uid as a internal user id
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <returns>ApiResponse of Profile</returns>
+        public ApiResponse<Profile> RegisterWithHttpInfo (RegisterRequest registerRequest = default(RegisterRequest))
+        {
+
+            var localVarPath = "/accounts/register";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (registerRequest != null && registerRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(registerRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = registerRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Register", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Profile>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Profile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Profile)));
+        }
+
+        /// <summary>
+        /// Register a new client-helper user profile Creates a new profile, using JWT uid as a internal user id
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of Profile</returns>
+        public async System.Threading.Tasks.Task<Profile> RegisterAsync (RegisterRequest registerRequest = default(RegisterRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             ApiResponse<Profile> localVarResponse = await RegisterWithHttpInfoAsync(registerRequest, cancellationToken);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Register a new client-helper user profile Creates a new profile, using JWT uid as a internal user id
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="registerRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse (Profile)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Profile>> RegisterWithHttpInfoAsync (RegisterRequest registerRequest = default(RegisterRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+
+            var localVarPath = "/accounts/register";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (registerRequest != null && registerRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(registerRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = registerRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Register", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Profile>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (Profile) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Profile)));
+        }
+
+        /// <summary>
+        /// Send coins from selected account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <returns></returns>
+        public void SendCoins (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest))
+        {
+             SendCoinsWithHttpInfo(address, sendCoinsRequest);
+        }
+
+        /// <summary>
+        /// Send coins from selected account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> SendCoinsWithHttpInfo (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->SendCoins");
+
+            var localVarPath = "/accounts/{address}/send-coins";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
+            if (sendCoinsRequest != null && sendCoinsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendCoinsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendCoinsRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendCoins", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Send coins from selected account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task SendCoinsAsync (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await SendCoinsWithHttpInfoAsync(address, sendCoinsRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Send coins from selected account 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="sendCoinsRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendCoinsWithHttpInfoAsync (string address, SendCoinsRequest sendCoinsRequest = default(SendCoinsRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->SendCoins");
+
+            var localVarPath = "/accounts/{address}/send-coins";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
+            if (sendCoinsRequest != null && sendCoinsRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(sendCoinsRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendCoinsRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendCoins", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Sets account specific information 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns></returns>
+        public void UpdateAccount (string address, AccountRequest accountRequest = default(AccountRequest))
+        {
+             UpdateAccountWithHttpInfo(address, accountRequest);
+        }
+
+        /// <summary>
+        /// Sets account specific information 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateAccountWithHttpInfo (string address, AccountRequest accountRequest = default(AccountRequest))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->UpdateAccount");
+
+            var localVarPath = "/accounts/{address}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
+            if (accountRequest != null && accountRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(accountRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = accountRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Sets account specific information 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateAccountAsync (string address, AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+             await UpdateAccountWithHttpInfoAsync(address, accountRequest, cancellationToken);
+
+        }
+
+        /// <summary>
+        /// Sets account specific information 
+        /// </summary>
+        /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
+        /// <param name="accountRequest"> (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAccountWithHttpInfoAsync (string address, AccountRequest accountRequest = default(AccountRequest), CancellationToken cancellationToken = default(CancellationToken))
+        {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->UpdateAccount");
+
+            var localVarPath = "/accounts/{address}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
+            if (accountRequest != null && accountRequest.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(accountRequest); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = accountRequest; // byte array
+            }
+
+            // authentication (bearerAuth) required
+            // http bearer authentication required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarHeaderParams["Authorization"] = "Bearer " + this.Configuration.AccessToken;
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType, cancellationToken);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateAccount", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
         }
 
     }

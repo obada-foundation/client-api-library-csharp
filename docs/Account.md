@@ -5,8 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | Account owner id | [optional] 
-**Email** | **string** | Account owner email, will be used for verification purpose | 
+**Name** | **string** | Account address associated name | [optional] 
+**PubKey** | **string** | Public key | [optional] 
+**Address** | **string** | OBADA address | [optional] 
+**Balance** | **long** |  | [optional] 
+**NftCount** | **long** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

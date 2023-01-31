@@ -83,16 +83,17 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccountsApi(Configuration.Default);
+            var address = obada1yxxnd624tgwqm3eyv5smdvjrrydfh9h943qptg;  // string | OBADA address
 
             try
             {
-                // Shows account balance of OBADA address
-                AccountBalance result = apiInstance.Balance();
+                // Fetches an information about single account
+                Account result = apiInstance.Account(address);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AccountsApi.Balance: " + e.Message );
+                Debug.Print("Exception when calling AccountsApi.Account: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -108,8 +109,19 @@ All URIs are relative to *http://obs.node.obada.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AccountsApi* | [**Account**](docs/AccountsApi.md#account) | **GET** /accounts/{address} | Fetches an information about single account
+*AccountsApi* | [**Accounts**](docs/AccountsApi.md#accounts) | **GET** /accounts | Returns a list of OBADA accounts
 *AccountsApi* | [**Balance**](docs/AccountsApi.md#balance) | **GET** /accounts/my-balance | Shows account balance of OBADA address
-*AccountsApi* | [**CreateAccount**](docs/AccountsApi.md#createaccount) | **POST** /accounts | Creates a new Account
+*AccountsApi* | [**ExportAccount**](docs/AccountsApi.md#exportaccount) | **POST** /accounts/export-account | Export OBADA account (private key) from client-helper
+*AccountsApi* | [**GetMnemonic**](docs/AccountsApi.md#getmnemonic) | **GET** /accounts/mnemonic | Fetching an existing mnemonic phrase
+*AccountsApi* | [**ImportAccount**](docs/AccountsApi.md#importaccount) | **POST** /accounts/import-account | Imports an existing OBADA account (private key) to the client-helper user profile
+*AccountsApi* | [**ImportWallet**](docs/AccountsApi.md#importwallet) | **POST** /accounts/import-wallet | Imports an existing HD wallet to the client-helper user profile
+*AccountsApi* | [**NewAccount**](docs/AccountsApi.md#newaccount) | **POST** /accounts/new-account | Creates a new OBADA account from HD wallet master key
+*AccountsApi* | [**NewMnemonic**](docs/AccountsApi.md#newmnemonic) | **GET** /accounts/new-mnemonic | Generate a new mnemonic phrase for seeding wallet
+*AccountsApi* | [**NewWallet**](docs/AccountsApi.md#newwallet) | **POST** /accounts/new-wallet | Creates profile HD wallet
+*AccountsApi* | [**Register**](docs/AccountsApi.md#register) | **POST** /accounts/register | Register a new client-helper user profile
+*AccountsApi* | [**SendCoins**](docs/AccountsApi.md#sendcoins) | **POST** /accounts/{address}/send-coins | Send coins from selected account
+*AccountsApi* | [**UpdateAccount**](docs/AccountsApi.md#updateaccount) | **POST** /accounts/{address} | Sets account specific information
 *NFTApi* | [**Mint**](docs/NFTApi.md#mint) | **POST** /nft/{key}/mint | Mints NFT
 *NFTApi* | [**Nft**](docs/NFTApi.md#nft) | **GET** /nft/{key} | Fetch NFT from OBADA blockchain Node
 *NFTApi* | [**Send**](docs/NFTApi.md#send) | **POST** /nft/{key}/send | Send NFT to another address
@@ -126,28 +138,38 @@ Class | Method | HTTP request | Description
 
  - [Model.Account](docs/Account.md)
  - [Model.AccountBalance](docs/AccountBalance.md)
+ - [Model.AccountRequest](docs/AccountRequest.md)
+ - [Model.Accounts](docs/Accounts.md)
  - [Model.DeviceDocument](docs/DeviceDocument.md)
  - [Model.Document](docs/Document.md)
+ - [Model.ExportAccountRequest](docs/ExportAccountRequest.md)
+ - [Model.ExportAccountResponse](docs/ExportAccountResponse.md)
  - [Model.GenerateObitChecksumRequest](docs/GenerateObitChecksumRequest.md)
  - [Model.GenerateObitChecksumResponse](docs/GenerateObitChecksumResponse.md)
  - [Model.GenerateObitDIDRequest](docs/GenerateObitDIDRequest.md)
  - [Model.GenerateObitDIDResponse](docs/GenerateObitDIDResponse.md)
  - [Model.History200Response](docs/History200Response.md)
+ - [Model.ImportAccountRequest](docs/ImportAccountRequest.md)
  - [Model.InternalServerError](docs/InternalServerError.md)
+ - [Model.MnemonicRequest](docs/MnemonicRequest.md)
  - [Model.NFT](docs/NFT.md)
  - [Model.NFTData](docs/NFTData.md)
  - [Model.NFTDocument](docs/NFTDocument.md)
- - [Model.NewAccountRequest](docs/NewAccountRequest.md)
+ - [Model.NewMnemonic](docs/NewMnemonic.md)
  - [Model.NotAuthorized](docs/NotAuthorized.md)
  - [Model.NotFound](docs/NotFound.md)
  - [Model.Obit](docs/Obit.md)
  - [Model.ObitHistory](docs/ObitHistory.md)
  - [Model.Obits](docs/Obits.md)
  - [Model.ObitsMeta](docs/ObitsMeta.md)
+ - [Model.Profile](docs/Profile.md)
+ - [Model.RegisterRequest](docs/RegisterRequest.md)
  - [Model.SaveObitRequest](docs/SaveObitRequest.md)
+ - [Model.SendCoinsRequest](docs/SendCoinsRequest.md)
  - [Model.SendNFTRequest](docs/SendNFTRequest.md)
  - [Model.UnprocessableEntity](docs/UnprocessableEntity.md)
  - [Model.UnprocessableEntityFieldsInner](docs/UnprocessableEntityFieldsInner.md)
+ - [Model.WalletExistsError](docs/WalletExistsError.md)
 
 
 ## Documentation for Authorization

@@ -25,38 +25,47 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// New account create payload
+    /// ClientHelper user profile
     /// </summary>
     [DataContract]
-    public partial class NewAccountRequest :  IEquatable<NewAccountRequest>, IValidatableObject
+    public partial class Profile :  IEquatable<Profile>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewAccountRequest" /> class.
+        /// Initializes a new instance of the <see cref="Profile" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected NewAccountRequest() { }
+        protected Profile() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewAccountRequest" /> class.
+        /// Initializes a new instance of the <see cref="Profile" /> class.
         /// </summary>
-        /// <param name="email">Account owner email, will be used for verification purpose (required).</param>
-        public NewAccountRequest(string email = default(string))
+        /// <param name="id">Profile owner id.</param>
+        /// <param name="email">Profile owner email, will be used for verification purpose (required).</param>
+        public Profile(string id = default(string), string email = default(string))
         {
             // to ensure "email" is required (not null)
             if (email == null)
             {
-                throw new InvalidDataException("email is a required property for NewAccountRequest and cannot be null");
+                throw new InvalidDataException("email is a required property for Profile and cannot be null");
             }
             else
             {
                 this.Email = email;
             }
 
+            this.Id = id;
         }
 
         /// <summary>
-        /// Account owner email, will be used for verification purpose
+        /// Profile owner id
         /// </summary>
-        /// <value>Account owner email, will be used for verification purpose</value>
+        /// <value>Profile owner id</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Profile owner email, will be used for verification purpose
+        /// </summary>
+        /// <value>Profile owner email, will be used for verification purpose</value>
         [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
@@ -67,7 +76,8 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewAccountRequest {\n");
+            sb.Append("class Profile {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -89,20 +99,25 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NewAccountRequest);
+            return this.Equals(input as Profile);
         }
 
         /// <summary>
-        /// Returns true if NewAccountRequest instances are equal
+        /// Returns true if Profile instances are equal
         /// </summary>
-        /// <param name="input">Instance of NewAccountRequest to be compared</param>
+        /// <param name="input">Instance of Profile to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewAccountRequest input)
+        public bool Equals(Profile input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
                 (
                     this.Email == input.Email ||
                     (this.Email != null &&
@@ -119,6 +134,8 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 return hashCode;

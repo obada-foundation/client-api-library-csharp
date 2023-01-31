@@ -64,6 +64,29 @@ namespace Obada.Client.Test
 
         
         /// <summary>
+        /// Test Account
+        /// </summary>
+        [Test]
+        public void AccountTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string address = null;
+            //var response = instance.Account(address);
+            //Assert.IsInstanceOf(typeof(Account), response, "response is Account");
+        }
+        
+        /// <summary>
+        /// Test Accounts
+        /// </summary>
+        [Test]
+        public void AccountsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.Accounts();
+            //Assert.IsInstanceOf(typeof(Accounts), response, "response is Accounts");
+        }
+        
+        /// <summary>
         /// Test Balance
         /// </summary>
         [Test]
@@ -75,15 +98,123 @@ namespace Obada.Client.Test
         }
         
         /// <summary>
-        /// Test CreateAccount
+        /// Test ExportAccount
         /// </summary>
         [Test]
-        public void CreateAccountTest()
+        public void ExportAccountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //NewAccountRequest newAccountRequest = null;
-            //var response = instance.CreateAccount(newAccountRequest);
-            //Assert.IsInstanceOf(typeof(Account), response, "response is Account");
+            //ExportAccountRequest exportAccountRequest = null;
+            //var response = instance.ExportAccount(exportAccountRequest);
+            //Assert.IsInstanceOf(typeof(ExportAccountResponse), response, "response is ExportAccountResponse");
+        }
+        
+        /// <summary>
+        /// Test GetMnemonic
+        /// </summary>
+        [Test]
+        public void GetMnemonicTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GetMnemonic();
+            //Assert.IsInstanceOf(typeof(NewMnemonic), response, "response is NewMnemonic");
+        }
+        
+        /// <summary>
+        /// Test ImportAccount
+        /// </summary>
+        [Test]
+        public void ImportAccountTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //ImportAccountRequest importAccountRequest = null;
+            //instance.ImportAccount(importAccountRequest);
+            
+        }
+        
+        /// <summary>
+        /// Test ImportWallet
+        /// </summary>
+        [Test]
+        public void ImportWalletTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MnemonicRequest mnemonicRequest = null;
+            //instance.ImportWallet(mnemonicRequest);
+            
+        }
+        
+        /// <summary>
+        /// Test NewAccount
+        /// </summary>
+        [Test]
+        public void NewAccountTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //AccountRequest accountRequest = null;
+            //instance.NewAccount(accountRequest);
+            
+        }
+        
+        /// <summary>
+        /// Test NewMnemonic
+        /// </summary>
+        [Test]
+        public void NewMnemonicTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.NewMnemonic();
+            //Assert.IsInstanceOf(typeof(NewMnemonic), response, "response is NewMnemonic");
+        }
+        
+        /// <summary>
+        /// Test NewWallet
+        /// </summary>
+        [Test]
+        public void NewWalletTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //MnemonicRequest mnemonicRequest = null;
+            //instance.NewWallet(mnemonicRequest);
+            
+        }
+        
+        /// <summary>
+        /// Test Register
+        /// </summary>
+        [Test]
+        public void RegisterTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //RegisterRequest registerRequest = null;
+            //var response = instance.Register(registerRequest);
+            //Assert.IsInstanceOf(typeof(Profile), response, "response is Profile");
+        }
+        
+        /// <summary>
+        /// Test SendCoins
+        /// </summary>
+        [Test]
+        public void SendCoinsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string address = null;
+            //SendCoinsRequest sendCoinsRequest = null;
+            //instance.SendCoins(address, sendCoinsRequest);
+            
+        }
+        
+        /// <summary>
+        /// Test UpdateAccount
+        /// </summary>
+        [Test]
+        public void UpdateAccountTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string address = null;
+            //AccountRequest accountRequest = null;
+            //instance.UpdateAccount(address, accountRequest);
+            
         }
         
     }

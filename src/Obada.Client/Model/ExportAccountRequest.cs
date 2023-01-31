@@ -25,60 +25,35 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// OBADA account
+    /// OBADA account export payload
     /// </summary>
     [DataContract]
-    public partial class Account :  IEquatable<Account>, IValidatableObject
+    public partial class ExportAccountRequest :  IEquatable<ExportAccountRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Account" /> class.
+        /// Initializes a new instance of the <see cref="ExportAccountRequest" /> class.
         /// </summary>
-        /// <param name="name">Account address associated name.</param>
-        /// <param name="pubKey">Public key.</param>
-        /// <param name="address">OBADA address.</param>
-        /// <param name="balance">balance.</param>
-        /// <param name="nftCount">nftCount.</param>
-        public Account(string name = default(string), string pubKey = default(string), string address = default(string), long balance = default(long), long nftCount = default(long))
+        /// <param name="address">OBADA account.</param>
+        /// <param name="passphrase">Passphrase to decrypt the account.</param>
+        public ExportAccountRequest(string address = default(string), string passphrase = default(string))
         {
-            this.Name = name;
-            this.PubKey = pubKey;
             this.Address = address;
-            this.Balance = balance;
-            this.NftCount = nftCount;
+            this.Passphrase = passphrase;
         }
 
         /// <summary>
-        /// Account address associated name
+        /// OBADA account
         /// </summary>
-        /// <value>Account address associated name</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Public key
-        /// </summary>
-        /// <value>Public key</value>
-        [DataMember(Name="pub_key", EmitDefaultValue=false)]
-        public string PubKey { get; set; }
-
-        /// <summary>
-        /// OBADA address
-        /// </summary>
-        /// <value>OBADA address</value>
+        /// <value>OBADA account</value>
         [DataMember(Name="address", EmitDefaultValue=false)]
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or Sets Balance
+        /// Passphrase to decrypt the account
         /// </summary>
-        [DataMember(Name="balance", EmitDefaultValue=false)]
-        public long Balance { get; set; }
-
-        /// <summary>
-        /// Gets or Sets NftCount
-        /// </summary>
-        [DataMember(Name="nft_count", EmitDefaultValue=false)]
-        public long NftCount { get; set; }
+        /// <value>Passphrase to decrypt the account</value>
+        [DataMember(Name="passphrase", EmitDefaultValue=false)]
+        public string Passphrase { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -87,12 +62,9 @@ namespace Obada.Client.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Account {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  PubKey: ").Append(PubKey).Append("\n");
+            sb.Append("class ExportAccountRequest {\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  Balance: ").Append(Balance).Append("\n");
-            sb.Append("  NftCount: ").Append(NftCount).Append("\n");
+            sb.Append("  Passphrase: ").Append(Passphrase).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,44 +85,29 @@ namespace Obada.Client.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Account);
+            return this.Equals(input as ExportAccountRequest);
         }
 
         /// <summary>
-        /// Returns true if Account instances are equal
+        /// Returns true if ExportAccountRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of Account to be compared</param>
+        /// <param name="input">Instance of ExportAccountRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Account input)
+        public bool Equals(ExportAccountRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.PubKey == input.PubKey ||
-                    (this.PubKey != null &&
-                    this.PubKey.Equals(input.PubKey))
-                ) && 
-                (
                     this.Address == input.Address ||
                     (this.Address != null &&
                     this.Address.Equals(input.Address))
                 ) && 
                 (
-                    this.Balance == input.Balance ||
-                    (this.Balance != null &&
-                    this.Balance.Equals(input.Balance))
-                ) && 
-                (
-                    this.NftCount == input.NftCount ||
-                    (this.NftCount != null &&
-                    this.NftCount.Equals(input.NftCount))
+                    this.Passphrase == input.Passphrase ||
+                    (this.Passphrase != null &&
+                    this.Passphrase.Equals(input.Passphrase))
                 );
         }
 
@@ -163,16 +120,10 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.PubKey != null)
-                    hashCode = hashCode * 59 + this.PubKey.GetHashCode();
                 if (this.Address != null)
                     hashCode = hashCode * 59 + this.Address.GetHashCode();
-                if (this.Balance != null)
-                    hashCode = hashCode * 59 + this.Balance.GetHashCode();
-                if (this.NftCount != null)
-                    hashCode = hashCode * 59 + this.NftCount.GetHashCode();
+                if (this.Passphrase != null)
+                    hashCode = hashCode * 59 + this.Passphrase.GetHashCode();
                 return hashCode;
             }
         }

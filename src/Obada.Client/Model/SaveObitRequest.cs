@@ -42,7 +42,8 @@ namespace Obada.Client.Model
         /// <param name="partNumber">Manufacturer provided. In cases where no part number is provided for the product, use model, or the most specific ID available from the manufacturer. MWCN2LL/A (an iPhone 11 Pro, Silver, 256GB, model A2160) (required).</param>
         /// <param name="serialNumber">Serial number hashed with sha256 hash function (required).</param>
         /// <param name="documents">documents.</param>
-        public SaveObitRequest(string manufacturer = default(string), string partNumber = default(string), string serialNumber = default(string), List<DeviceDocument> documents = default(List<DeviceDocument>))
+        /// <param name="address">address.</param>
+        public SaveObitRequest(string manufacturer = default(string), string partNumber = default(string), string serialNumber = default(string), List<DeviceDocument> documents = default(List<DeviceDocument>), string address = default(string))
         {
             // to ensure "manufacturer" is required (not null)
             if (manufacturer == null)
@@ -75,6 +76,7 @@ namespace Obada.Client.Model
             }
 
             this.Documents = documents;
+            this.Address = address;
         }
 
         /// <summary>
@@ -105,6 +107,12 @@ namespace Obada.Client.Model
         public List<DeviceDocument> Documents { get; set; }
 
         /// <summary>
+        /// Gets or Sets Address
+        /// </summary>
+        [DataMember(Name="address", EmitDefaultValue=false)]
+        public string Address { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -116,6 +124,7 @@ namespace Obada.Client.Model
             sb.Append("  PartNumber: ").Append(PartNumber).Append("\n");
             sb.Append("  SerialNumber: ").Append(SerialNumber).Append("\n");
             sb.Append("  Documents: ").Append(Documents).Append("\n");
+            sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -170,6 +179,11 @@ namespace Obada.Client.Model
                     this.Documents != null &&
                     input.Documents != null &&
                     this.Documents.SequenceEqual(input.Documents)
+                ) && 
+                (
+                    this.Address == input.Address ||
+                    (this.Address != null &&
+                    this.Address.Equals(input.Address))
                 );
         }
 
@@ -190,6 +204,8 @@ namespace Obada.Client.Model
                     hashCode = hashCode * 59 + this.SerialNumber.GetHashCode();
                 if (this.Documents != null)
                     hashCode = hashCode * 59 + this.Documents.GetHashCode();
+                if (this.Address != null)
+                    hashCode = hashCode * 59 + this.Address.GetHashCode();
                 return hashCode;
             }
         }

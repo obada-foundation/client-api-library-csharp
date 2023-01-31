@@ -97,6 +97,14 @@ namespace Obada.Client.Test
         {
             // TODO unit test for the property 'Documents'
         }
+        /// <summary>
+        /// Test the property 'Address'
+        /// </summary>
+        [Test]
+        public void AddressTest()
+        {
+            // TODO unit test for the property 'Address'
+        }
 
     }
 
