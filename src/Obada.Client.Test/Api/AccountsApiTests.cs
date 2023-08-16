@@ -87,14 +87,15 @@ namespace Obada.Client.Test
         }
         
         /// <summary>
-        /// Test Balance
+        /// Test DeleteImportedAccount
         /// </summary>
         [Test]
-        public void BalanceTest()
+        public void DeleteImportedAccountTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.Balance();
-            //Assert.IsInstanceOf(typeof(AccountBalance), response, "response is AccountBalance");
+            //string address = null;
+            //instance.DeleteImportedAccount(address);
+            
         }
         
         /// <summary>

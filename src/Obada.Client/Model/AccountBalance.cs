@@ -25,7 +25,7 @@ using OpenAPIDateConverter = Obada.Client.Client.OpenAPIDateConverter;
 namespace Obada.Client.Model
 {
     /// <summary>
-    /// OBADA Account balance
+    /// AccountBalance
     /// </summary>
     [DataContract]
     public partial class AccountBalance :  IEquatable<AccountBalance>, IValidatableObject
@@ -33,25 +33,26 @@ namespace Obada.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountBalance" /> class.
         /// </summary>
-        /// <param name="address">address.</param>
-        /// <param name="balance">balance.</param>
-        public AccountBalance(string address = default(string), long balance = default(long))
+        /// <param name="denom">Denomination unit.</param>
+        /// <param name="amount">amount.</param>
+        public AccountBalance(string denom = default(string), string amount = default(string))
         {
-            this.Address = address;
-            this.Balance = balance;
+            this.Denom = denom;
+            this.Amount = amount;
         }
 
         /// <summary>
-        /// Gets or Sets Address
+        /// Denomination unit
         /// </summary>
-        [DataMember(Name="address", EmitDefaultValue=false)]
-        public string Address { get; set; }
+        /// <value>Denomination unit</value>
+        [DataMember(Name="denom", EmitDefaultValue=false)]
+        public string Denom { get; set; }
 
         /// <summary>
-        /// Gets or Sets Balance
+        /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name="balance", EmitDefaultValue=false)]
-        public long Balance { get; set; }
+        [DataMember(Name="amount", EmitDefaultValue=false)]
+        public string Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +62,8 @@ namespace Obada.Client.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AccountBalance {\n");
-            sb.Append("  Address: ").Append(Address).Append("\n");
-            sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  Denom: ").Append(Denom).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,14 +99,14 @@ namespace Obada.Client.Model
 
             return 
                 (
-                    this.Address == input.Address ||
-                    (this.Address != null &&
-                    this.Address.Equals(input.Address))
+                    this.Denom == input.Denom ||
+                    (this.Denom != null &&
+                    this.Denom.Equals(input.Denom))
                 ) && 
                 (
-                    this.Balance == input.Balance ||
-                    (this.Balance != null &&
-                    this.Balance.Equals(input.Balance))
+                    this.Amount == input.Amount ||
+                    (this.Amount != null &&
+                    this.Amount.Equals(input.Amount))
                 );
         }
 
@@ -118,10 +119,10 @@ namespace Obada.Client.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Address != null)
-                    hashCode = hashCode * 59 + this.Address.GetHashCode();
-                if (this.Balance != null)
-                    hashCode = hashCode * 59 + this.Balance.GetHashCode();
+                if (this.Denom != null)
+                    hashCode = hashCode * 59 + this.Denom.GetHashCode();
+                if (this.Amount != null)
+                    hashCode = hashCode * 59 + this.Amount.GetHashCode();
                 return hashCode;
             }
         }

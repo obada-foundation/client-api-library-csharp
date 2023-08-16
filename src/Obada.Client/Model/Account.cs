@@ -38,7 +38,7 @@ namespace Obada.Client.Model
         /// <param name="address">OBADA address.</param>
         /// <param name="balance">balance.</param>
         /// <param name="nftCount">nftCount.</param>
-        public Account(string name = default(string), string pubKey = default(string), string address = default(string), long balance = default(long), long nftCount = default(long))
+        public Account(string name = default(string), string pubKey = default(string), string address = default(string), AccountBalance balance = default(AccountBalance), long nftCount = default(long))
         {
             this.Name = name;
             this.PubKey = pubKey;
@@ -72,7 +72,7 @@ namespace Obada.Client.Model
         /// Gets or Sets Balance
         /// </summary>
         [DataMember(Name="balance", EmitDefaultValue=false)]
-        public long Balance { get; set; }
+        public AccountBalance Balance { get; set; }
 
         /// <summary>
         /// Gets or Sets NftCount

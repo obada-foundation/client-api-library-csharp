@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**Account**](AccountsApi.md#account) | **GET** /accounts/{address} | Fetches an information about single account
 [**Accounts**](AccountsApi.md#accounts) | **GET** /accounts | Returns a list of OBADA accounts
-[**Balance**](AccountsApi.md#balance) | **GET** /accounts/my-balance | Shows account balance of OBADA address
+[**DeleteImportedAccount**](AccountsApi.md#deleteimportedaccount) | **DELETE** /accounts/{address} | Delete imported account
 [**ExportAccount**](AccountsApi.md#exportaccount) | **POST** /accounts/export-account | Export OBADA account (private key) from client-helper
 [**GetMnemonic**](AccountsApi.md#getmnemonic) | **GET** /accounts/mnemonic | Fetching an existing mnemonic phrase
 [**ImportAccount**](AccountsApi.md#importaccount) | **POST** /accounts/import-account | Imports an existing OBADA account (private key) to the client-helper user profile
@@ -175,11 +175,11 @@ This endpoint does not need any parameter.
 [[Back to README]](../README.md)
 
 
-## Balance
+## DeleteImportedAccount
 
-> AccountBalance Balance ()
+> void DeleteImportedAccount (string address)
 
-Shows account balance of OBADA address
+Delete imported account
 
 ### Example
 
@@ -192,7 +192,7 @@ using Obada.Client.Model;
 
 namespace Example
 {
-    public class BalanceExample
+    public class DeleteImportedAccountExample
     {
         public static void Main()
         {
@@ -201,16 +201,16 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AccountsApi(Configuration.Default);
+            var address = obada1yxxnd624tgwqm3eyv5smdvjrrydfh9h943qptg;  // string | OBADA address
 
             try
             {
-                // Shows account balance of OBADA address
-                AccountBalance result = apiInstance.Balance();
-                Debug.WriteLine(result);
+                // Delete imported account
+                apiInstance.DeleteImportedAccount(address);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling AccountsApi.Balance: " + e.Message );
+                Debug.Print("Exception when calling AccountsApi.DeleteImportedAccount: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -221,11 +221,14 @@ namespace Example
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **string**| OBADA address | 
 
 ### Return type
 
-[**AccountBalance**](AccountBalance.md)
+void (empty response body)
 
 ### Authorization
 
@@ -240,9 +243,9 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Account balance response |  -  |
-| **401** | The request is not authorized. |  -  |
+| **204** | Account was deleted |  -  |
 | **422** | The submitted entity could not be processed. |  -  |
+| **401** | The request is not authorized. |  -  |
 | **500** | Internal server error. |  -  |
 
 [[Back to top]](#)
@@ -1032,7 +1035,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **201** | Account was updated |  -  |
+| **204** | Account was updated |  -  |
 | **422** | The submitted entity could not be processed. |  -  |
 | **401** | The request is not authorized. |  -  |
 | **500** | Internal server error. |  -  |

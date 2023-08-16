@@ -111,7 +111,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountsApi* | [**Account**](docs/AccountsApi.md#account) | **GET** /accounts/{address} | Fetches an information about single account
 *AccountsApi* | [**Accounts**](docs/AccountsApi.md#accounts) | **GET** /accounts | Returns a list of OBADA accounts
-*AccountsApi* | [**Balance**](docs/AccountsApi.md#balance) | **GET** /accounts/my-balance | Shows account balance of OBADA address
+*AccountsApi* | [**DeleteImportedAccount**](docs/AccountsApi.md#deleteimportedaccount) | **DELETE** /accounts/{address} | Delete imported account
 *AccountsApi* | [**ExportAccount**](docs/AccountsApi.md#exportaccount) | **POST** /accounts/export-account | Export OBADA account (private key) from client-helper
 *AccountsApi* | [**GetMnemonic**](docs/AccountsApi.md#getmnemonic) | **GET** /accounts/mnemonic | Fetching an existing mnemonic phrase
 *AccountsApi* | [**ImportAccount**](docs/AccountsApi.md#importaccount) | **POST** /accounts/import-account | Imports an existing OBADA account (private key) to the client-helper user profile

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Name** | **string** | Account address associated name | [optional] 
 **PubKey** | **string** | Public key | [optional] 
 **Address** | **string** | OBADA address | [optional] 
-**Balance** | **long** |  | [optional] 
+**Balance** | [**AccountBalance**](AccountBalance.md) |  | [optional] 
 **NftCount** | **long** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -66,24 +66,26 @@ namespace Obada.Client.Api
         /// <returns>ApiResponse of Accounts</returns>
         ApiResponse<Accounts> AccountsWithHttpInfo ();
         /// <summary>
-        /// Shows account balance of OBADA address
+        /// Delete imported account
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>AccountBalance</returns>
-        AccountBalance Balance ();
+        /// <param name="address">OBADA address</param>
+        /// <returns></returns>
+        void DeleteImportedAccount (string address);
 
         /// <summary>
-        /// Shows account balance of OBADA address
+        /// Delete imported account
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of AccountBalance</returns>
-        ApiResponse<AccountBalance> BalanceWithHttpInfo ();
+        /// <param name="address">OBADA address</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteImportedAccountWithHttpInfo (string address);
         /// <summary>
         /// Export OBADA account (private key) from client-helper
         /// </summary>
@@ -341,26 +343,28 @@ namespace Obada.Client.Api
         /// <returns>Task of ApiResponse (Accounts)</returns>
         System.Threading.Tasks.Task<ApiResponse<Accounts>> AccountsWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Shows account balance of OBADA address
+        /// Delete imported account
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of AccountBalance</returns>
-        System.Threading.Tasks.Task<AccountBalance> BalanceAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteImportedAccountAsync (string address, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Shows account balance of OBADA address
+        /// Delete imported account
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (AccountBalance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AccountBalance>> BalanceWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteImportedAccountWithHttpInfoAsync (string address, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Export OBADA account (private key) from client-helper
         /// </summary>
@@ -985,25 +989,29 @@ namespace Obada.Client.Api
         }
 
         /// <summary>
-        /// Shows account balance of OBADA address 
+        /// Delete imported account 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>AccountBalance</returns>
-        public AccountBalance Balance ()
+        /// <param name="address">OBADA address</param>
+        /// <returns></returns>
+        public void DeleteImportedAccount (string address)
         {
-             ApiResponse<AccountBalance> localVarResponse = BalanceWithHttpInfo();
-             return localVarResponse.Data;
+             DeleteImportedAccountWithHttpInfo(address);
         }
 
         /// <summary>
-        /// Shows account balance of OBADA address 
+        /// Delete imported account 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of AccountBalance</returns>
-        public ApiResponse<AccountBalance> BalanceWithHttpInfo ()
+        /// <param name="address">OBADA address</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DeleteImportedAccountWithHttpInfo (string address)
         {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->DeleteImportedAccount");
 
-            var localVarPath = "/accounts/my-balance";
+            var localVarPath = "/accounts/{address}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1024,6 +1032,7 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
 
             // authentication (bearerAuth) required
             // http bearer authentication required
@@ -1034,45 +1043,49 @@ namespace Obada.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Balance", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteImportedAccount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<AccountBalance>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (AccountBalance) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AccountBalance)));
+                null);
         }
 
         /// <summary>
-        /// Shows account balance of OBADA address 
+        /// Delete imported account 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of AccountBalance</returns>
-        public async System.Threading.Tasks.Task<AccountBalance> BalanceAsync (CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteImportedAccountAsync (string address, CancellationToken cancellationToken = default(CancellationToken))
         {
-             ApiResponse<AccountBalance> localVarResponse = await BalanceWithHttpInfoAsync(cancellationToken);
-             return localVarResponse.Data;
+             await DeleteImportedAccountWithHttpInfoAsync(address, cancellationToken);
 
         }
 
         /// <summary>
-        /// Shows account balance of OBADA address 
+        /// Delete imported account 
         /// </summary>
         /// <exception cref="Obada.Client.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="address">OBADA address</param>
         /// <param name="cancellationToken">Cancellation Token to cancel request (optional) </param>
-        /// <returns>Task of ApiResponse (AccountBalance)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<AccountBalance>> BalanceWithHttpInfoAsync (CancellationToken cancellationToken = default(CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteImportedAccountWithHttpInfoAsync (string address, CancellationToken cancellationToken = default(CancellationToken))
         {
+            // verify the required parameter 'address' is set
+            if (address == null)
+                throw new ApiException(400, "Missing required parameter 'address' when calling AccountsApi->DeleteImportedAccount");
 
-            var localVarPath = "/accounts/my-balance";
+            var localVarPath = "/accounts/{address}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -1093,6 +1106,7 @@ namespace Obada.Client.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (address != null) localVarPathParams.Add("address", this.Configuration.ApiClient.ParameterToString(address)); // path parameter
 
             // authentication (bearerAuth) required
             // http bearer authentication required
@@ -1103,20 +1117,20 @@ namespace Obada.Client.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType, cancellationToken);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Balance", localVarResponse);
+                Exception exception = ExceptionFactory("DeleteImportedAccount", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<AccountBalance>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (AccountBalance) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(AccountBalance)));
+                null);
         }
 
         /// <summary>
